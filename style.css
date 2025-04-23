@@ -130,3 +130,22 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background: #218838;
 }
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+.input-group input {
+  flex: 3;
+}
+.input-group button {
+  flex: 1;
+  white-space: nowrap;
+}
+
+/* Đáp án căn từ phải qua trái */
+.schedule-option label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
