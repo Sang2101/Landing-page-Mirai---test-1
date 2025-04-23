@@ -107,4 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function combineDOB() {
-    const day = document.getElementBy
+    const day = document.getElementById("dob-day").value.padStart(2, "0");
+    const month = document.getElementById("dob-month").value.padStart(2, "0");
+    const year = document.getElementById("dob-year").value;
+    if (!day || !month || !year) return "";
+    return `${day}/${month}/${year}`;
+  }
+});
