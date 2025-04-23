@@ -3,7 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const scheduleContainer = document.getElementById("scheduleContainer");
   const statusMessage = document.getElementById("statusMessage");
 
-  const days = ["Ngày 12/05/2025","Ngày 13/05/2025","Ngày 14/05/2025","Ngày 15/05/2025","Ngày 16/05/2025","Ngày 19/05/2025","Ngày 20/05/2025","Ngày 21/05/2025","Ngày 22/05/2025","Ngày 23/05/2025"];
+  const days = [
+    "Ngày 12/05/2025", "Ngày 13/05/2025", "Ngày 14/05/2025",
+    "Ngày 15/05/2025", "Ngày 16/05/2025", "Ngày 19/05/2025",
+    "Ngày 20/05/2025", "Ngày 21/05/2025", "Ngày 22/05/2025", "Ngày 23/05/2025"
+  ];
+
   const slots = [
     "8h00 - 9h00", "9h00 - 10h00", "10h00 - 11h00", "11h00 - 12h00",
     "13h00 - 14h00", "14h00 - 15h00", "15h00 - 16h00", "16h00 - 17h00"
@@ -33,12 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const disabled = count >= limit ? "disabled" : "";
         const labelText = count >= limit ? `${slot} (đã đủ)` : `${slot} (${count}/${limit})`;
 
-        const id = `slot-${day.replace("/", "_")}-${slot.replace(/\s|-/g, "")}`;
         const option = document.createElement("div");
         option.className = "schedule-option";
         option.innerHTML = `
           <label>
-            <input type="radio" name="schedule" value="${value}" id="${id}" ${disabled} />
+            <input type="radio" name="schedule" value="${value}" ${disabled} />
             <span>${labelText}</span>
           </label>
         `;
@@ -79,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const radio = document.querySelector(`input[value='${demoData.selectedSlot}']`);
     if (radio && !radio.disabled) radio.checked = true;
-
     statusMessage.innerText = demoData.found ? "✅ Đã nạp dữ liệu mẫu" : "Không tìm thấy dữ liệu";
   });
 
