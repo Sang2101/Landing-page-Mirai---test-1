@@ -3,85 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page Demo</title>
+  <title>Đăng ký khám sức khỏe</title>
   <style>
-    /* Đặt kiểu cơ bản cho toàn trang */
     * {
-      box-sizing: border-box; /* Đảm bảo padding, border không làm tăng kích thước phần tử */
+      box-sizing: border-box;
     }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       font-size: 16px;
       line-height: 1.5;
-      /* Nền gradient từ xanh nhạt (#d0ebff) đến trắng (to bottom) */
       background: linear-gradient(to bottom, #d0ebff, #ffffff);
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 20px;
     }
-    /* Khung nội dung chính */
     .container {
-      background-color: #ffffff;                /* Nền trắng cho khung nội dung */
-      border: 1px solid rgba(0, 0, 0, 0.1);      /* Viền mỏng màu xám nhạt */
-      border-radius: 8px;                       /* Bo tròn các góc khung */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Đổ bóng nhẹ xung quanh khung */
-      width: 90%;            /* Chiếm 90% chiều ngang trang (để có khoảng trống hai bên trên mobile) */
-      max-width: 500px;      /* Giới hạn độ rộng tối đa 500px trên màn hình lớn */
-      padding: 20px;         /* Khoảng đệm bên trong khung cho nội dung thoáng */
-      margin: 20px 0;        /* Khoảng cách trên dưới giữa khung và mép trang */
-      text-align: center;    /* Căn giữa nội dung văn bản bên trong khung */
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 600px;
+      padding: 25px;
     }
     .container h1 {
-      margin-top: 0;         /* Bỏ khoảng trống mặc định phía trên tiêu đề */
+      text-align: center;
+      margin-top: 0;
+      color: #1a237e;
     }
-    .container p {
-      margin-bottom: 1em;    /* Khoảng cách dưới đoạn mô tả */
+    .form-field {
+      margin-bottom: 15px;
     }
-    /* Style cho các trường nhập liệu */
-    .container form input[type="text"],
-    .container form input[type="email"] {
-      width: 100%;               /* Input giãn ngang full khung để dễ bấm trên mobile */
-      padding: 10px;             /* Khoảng đệm trong ô để nội dung không sát viền */
-      margin: 8px 0;             /* Margin dọc giữa các trường để chúng tách biệt rõ */
-      border: 1px solid #ccc;    /* Viền mỏng màu xám nhạt cho ô nhập */
-      border-radius: 4px;        /* Bo tròn nhẹ các góc ô nhập */
-      font-size: 16px;           /* Cỡ chữ dễ đọc */
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
     }
-    /* Style cho nút submit */
-    .container form button {
-      width: 100%;               /* Nút rộng 100% khung (đầy chiều ngang) */
-      padding: 12px;
-      margin-top: 10px;          /* Khoảng cách trên nút để tách khỏi trường nhập trước đó */
-      border: none;
-      border-radius: 4px;
-      background-color: #4dabf7; /* Màu xanh dương vừa cho nút bấm */
-      color: #fff;
+    input, select, button {
+      padding: 10px;
       font-size: 16px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+    .input-group input {
+      flex: 1;
+    }
+    .input-group button {
+      flex-shrink: 0;
+      padding: 10px 15px;
+      background: #4dabf7;
+      color: white;
+      border: none;
       cursor: pointer;
     }
-    .container form button:hover {
-      background-color: #228be6; /* Đổi màu đậm hơn khi hover để tạo hiệu ứng phản hồi */
+    .input-group button:hover {
+      background: #228be6;
+    }
+    .dob-group {
+      display: flex;
+      gap: 10px;
+    }
+    .dob-group input {
+      width: 100%;
+      max-width: 80px;
+    }
+    .schedule-group {
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .schedule-group strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #1a237e;
+      font-weight: 700;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+    .schedule-option {
+      margin: 4px 0;
+    }
+    .schedule-option label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: normal;
+    }
+    button[type="submit"] {
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button[type="submit"]:hover {
+      background: #0056b3;
+    }
+    #statusMessage {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Tiêu đề Chính</h1>
-    <p>Mô tả ngắn gọn về nội dung trang.</p>
-    <form id="landing-form" action="#" method="post">
-      <input type="text" name="name" placeholder="Nhập tên của bạn" required />
-      <input type="email" name="email" placeholder="Nhập email" required />
-      <button type="submit">Gửi</button>
+    <h1>Form Đăng Ký Khám Sức Khỏe Tại Mirai</h1>
+    <form id="registrationForm">
+      <div class="form-field">
+        <label for="employeeId">Mã nhân viên *</label>
+        <div class="input-group">
+          <input type="text" id="employeeId" required />
+          <button type="button" id="checkCodeBtn">Tải lại thông tin</button>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="fullName">Họ và tên</label>
+        <input type="text" id="fullName">
+      </div>
+      <div class="form-field">
+        <label>Ngày sinh</label>
+        <div class="dob-group">
+          <input type="number" id="dob-day" min="1" max="31" placeholder="Ngày">
+          <input type="number" id="dob-month" min="1" max="12" placeholder="Tháng">
+          <input type="number" id="dob-year" min="1900" max="2100" placeholder="Năm">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="gender">Giới tính</label>
+        <select id="gender">
+          <option value="">-- Chọn --</option>
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+          <option value="Khác">Khác</option>
+        </select>
+      </div>
+
+      <h2>Chọn 1 khung giờ khám duy nhất</h2>
+      <div id="scheduleContainer"></div>
+
+      <div id="statusMessage"></div>
+      <button type="submit">Đăng ký</button>
     </form>
   </div>
+
   <script>
-    // JavaScript: Xử lý submit form (ví dụ minh họa)
-    document.getElementById('landing-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Form đã được gửi!');  // Thông báo giả lập khi nhấn nút Gửi
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("registrationForm");
+      const scheduleContainer = document.getElementById("scheduleContainer");
+      const statusMessage = document.getElementById("statusMessage");
+
+      const days = ["Ngày 12/05/2025","Ngày 13/05/2025","Ngày 14/05/2025","Ngày 15/05/2025","Ngày 16/05/2025","Ngày 19/05/2025","Ngày 20/05/2025","Ngày 21/05/2025","Ngày 22/05/2025","Ngày 23/05/2025"];
+      const slots = [
+        "8h00 - 9h00", "9h00 - 10h00", "10h00 - 11h00", "11h00 - 12h00",
+        "13h00 - 14h00", "14h00 - 15h00", "15h00 - 16h00", "16h00 - 17h00"
+      ];
+
+      const slotLimits = {
+        "8h00 - 9h00": 30, "9h00 - 10h00": 29, "10h00 - 11h00": 28,
+        "11h00 - 12h00": 27, "13h00 - 14h00": 26, "14h00 - 15h00": 25,
+        "15h00 - 16h00": 24, "16h00 - 17h00": 23
+      };
+
+      const slotCounts = {
+        "Ngày 12/05/2025|8h00 - 9h00": 30,
+        "Ngày 14/05/2025|13h00 - 14h00": 20
+      };
+
+      function renderSchedule() {
+        scheduleContainer.innerHTML = "";
+        days.forEach(day => {
+          const group = document.createElement("div");
+          group.className = "schedule-group";
+          group.innerHTML = `<strong>${day}</strong>`;
+          slots.forEach(slot => {
+            const value = `${day}|${slot}`;
+            const count = slotCounts[value] || 0;
+            const limit = slotLimits[slot] || 10;
+            const disabled = count >= limit ? "disabled" : "";
+            const labelText = count >= limit ? `${slot} (đã đủ)` : `${slot} (${count}/${limit})`;
+
+            const id = `slot-${day.replace("/", "_")}-${slot.replace(/\s|-/g, "")}`;
+            const option = document.createElement("div");
+            option.className = "schedule-option";
+            option.innerHTML = `
+              <label>
+                <input type="radio" name="schedule" value="${value}" id="${id}" ${disabled} />
+                <span>${labelText}</span>
+              </label>
+            `;
+            group.appendChild(option);
+          });
+          scheduleContainer.appendChild(group);
+        });
+
+        document.querySelectorAll("input[name='schedule']").forEach(radio => {
+          radio.addEventListener("change", () => {
+            document.querySelectorAll("input[name='schedule']").forEach(r => {
+              if (r !== radio) r.checked = false;
+            });
+          });
+        });
+      }
+
+      renderSchedule();
+
+      document.getElementById("checkCodeBtn").addEventListener("click", () => {
+        const id = document.getElementById("employeeId").value.trim();
+        if (!id) return;
+
+        const demoData = {
+          found: true,
+          fullName: "Nguyễn Văn A",
+          dob: "01/01/1990",
+          gender: "Nam",
+          selectedSlot: "Ngày 14/05/2025|13h00 - 14h00"
+        };
+
+        document.getElementById("fullName").value = demoData.fullName;
+        const [d, m, y] = demoData.dob.split("/");
+        document.getElementById("dob-day").value = d;
+        document.getElementById("dob-month").value = m;
+        document.getElementById("dob-year").value = y;
+        document.getElementById("gender").value = demoData.gender;
+
+        const radio = document.querySelector(`input[value='${demoData.selectedSlot}']`);
+        if (radio && !radio.disabled) radio.checked = true;
+
+        statusMessage.innerText = demoData.found ? "✅ Đã nạp dữ liệu mẫu" : "Không tìm thấy dữ liệu";
+      });
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const slotValue = document.querySelector("input[name='schedule']:checked")?.value || "";
+        const data = {
+          employeeId: document.getElementById("employeeId").value,
+          fullName: document.getElementById("fullName").value,
+          dob: combineDOB(),
+          gender: document.getElementById("gender").value,
+          selectedSlot: slotValue
+        };
+
+        if (!data.employeeId || !slotValue) {
+          statusMessage.innerText = "❗ Vui lòng nhập mã nhân viên và chọn 1 khung giờ.";
+          return;
+        }
+
+        console.log("📥 Dữ liệu gửi:", data);
+        statusMessage.innerText = "✅ Dữ liệu đã được ghi vào console.";
+      });
+
+      function combineDOB() {
+        const day = document.getElementById("dob-day").value.padStart(2, "0");
+        const month = document.getElementById("dob-month").value.padStart(2, "0");
+        const year = document.getElementById("dob-year").value;
+        if (!day || !month || !year) return "";
+        return `${day}/${month}/${year}`;
+      }
     });
   </script>
 </body>
