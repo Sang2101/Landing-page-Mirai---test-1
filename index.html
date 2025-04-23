@@ -7,46 +7,47 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Form Đăng Ký Khám Sức Khỏe Tại Mirai</h1>
-    <form id="registrationForm">
-      <div class="form-field">
-        <label for="employeeId">Mã nhân viên *</label>
-        <div class="input-group">
-          <input type="text" id="employeeId" required />
-          <button type="button" id="checkCodeBtn">Tải lại thông tin</button>
+  <div class="main-wrapper">
+    <div class="container">
+      <h1>Form Đăng Ký Khám Sức Khỏe Tại Mirai</h1>
+      <form id="registrationForm">
+        <div class="form-field">
+          <label for="employeeId">Mã nhân viên *</label>
+          <div class="input-group">
+            <input type="text" id="employeeId" required />
+            <button type="button" id="checkCodeBtn">Tải lại</button>
+          </div>
         </div>
-      </div>
-      <div class="form-field">
-        <label for="fullName">Họ và tên</label>
-        <input type="text" id="fullName">
-      </div>
-      <div class="form-field">
-        <label>Ngày sinh</label>
-        <div class="dob-group">
-          <input type="number" id="dob-day" min="1" max="31" placeholder="Ngày">
-          <input type="number" id="dob-month" min="1" max="12" placeholder="Tháng">
-          <input type="number" id="dob-year" min="1900" max="2100" placeholder="Năm">
+        <div class="form-field">
+          <label for="fullName">Họ và tên</label>
+          <input type="text" id="fullName">
         </div>
-      </div>
-      <div class="form-field">
-        <label for="gender">Giới tính</label>
-        <select id="gender">
-          <option value="">-- Chọn --</option>
-          <option value="Nam">Nam</option>
-          <option value="Nữ">Nữ</option>
-          <option value="Khác">Khác</option>
-        </select>
-      </div>
+        <div class="form-field">
+          <label>Ngày sinh</label>
+          <div class="dob-group">
+            <input type="number" id="dob-day" min="1" max="31" placeholder="Ngày">
+            <input type="number" id="dob-month" min="1" max="12" placeholder="Tháng">
+            <input type="number" id="dob-year" min="1900" max="2100" placeholder="Năm">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="gender">Giới tính</label>
+          <select id="gender">
+            <option value="">-- Chọn --</option>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
 
-      <h2>Chọn 1 khung giờ khám duy nhất</h2>
-      <div id="scheduleContainer"></div>
+        <h2>Chọn 1 khung giờ khám duy nhất</h2>
+        <div id="scheduleContainer"></div>
 
-      <div id="statusMessage"></div>
-      <button type="submit">Đăng ký</button>
-    </form>
+        <div id="statusMessage"></div>
+        <button type="submit">Đăng ký</button>
+      </form>
+    </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
