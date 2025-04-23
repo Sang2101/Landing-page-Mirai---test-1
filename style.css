@@ -1,88 +1,157 @@
+/* Font hiện đại hơn */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #f0f4f8, #ffffff);
   margin: 0;
   padding: 20px;
+  color: #333;
 }
+
+/* Container chính */
 .container {
   max-width: 700px;
   margin: auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
+
+/* Tiêu đề form */
+.form-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1a237e;
+  margin-bottom: 25px;
+}
+
+/* Cụm field */
+.form-section {
+  margin-bottom: 30px;
+}
+.form-section h2 {
+  font-size: 1.2rem;
+  color: #374151;
+  margin-bottom: 12px;
+  border-left: 4px solid #1a237e;
+  padding-left: 10px;
+}
+
+/* Trường form */
 .form-field {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 label {
-  font-weight: bold;
+  font-weight: 600;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
-input, select, button {
-  padding: 10px;
+input, select {
+  padding: 10px 12px;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border 0.2s;
 }
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Nhóm input và nút */
 .input-group {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+.input-group input {
+  flex: 1;
 }
 .input-group button {
-  margin-left: 8px;
-}
-.schedule-group {
-  margin-bottom: 15px;
-}
-.schedule-option {
-  margin: 3px 0;
-}
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-button:hover {
-  background: #0056b3;
-}
-#statusMessage {
-  margin-top: 10px;
-  font-weight: bold;
-}
-.schedule-group {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  flex-shrink: 0;
 }
 
-.schedule-group strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #333;
-  font-weight: 600;
-}
-.schedule-group strong {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #1a237e; /* xanh đậm */
-  font-weight: 700;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-}
+/* Nhóm ngày sinh */
 .dob-group {
   display: flex;
   gap: 10px;
 }
 .dob-group input {
-  width: 100%;
   max-width: 80px;
+  text-align: center;
+}
+
+/* Container khung giờ */
+.schedule-group {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.schedule-group strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #1a237e;
+  font-weight: 700;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+/* Lựa chọn khung giờ */
+.schedule-option {
+  margin: 6px 0;
+}
+.schedule-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.schedule-option input[type="radio"] {
+  accent-color: #007bff;
+}
+
+/* Nút đăng ký */
+button[type="submit"] {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* Nút phụ */
+.input-group button {
+  padding: 10px 14px;
+  background-color: #e5e7eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.input-group button:hover {
+  background-color: #d1d5db;
+}
+
+/* Trạng thái thông báo */
+#statusMessage {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #0f5132;
+  background-color: #d1e7dd;
+  padding: 10px;
+  border-radius: 6px;
+  display: none; /* mặc định ẩn */
 }
