@@ -63,6 +63,7 @@ input, select, button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .input-group button:hover {
@@ -87,7 +88,6 @@ input, select, button {
   margin-bottom: 20px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-  direction: rtl;
 }
 
 .schedule-group strong {
@@ -98,7 +98,6 @@ input, select, button {
   font-weight: 700;
   border-bottom: 1px solid #ccc;
   padding-bottom: 4px;
-  direction: ltr;
 }
 
 .schedule-option {
@@ -108,7 +107,9 @@ input, select, button {
 .schedule-option label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 10px;
+  font-weight: normal;
 }
 
 #statusMessage {
@@ -129,23 +130,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background: #218838;
-}
-.input-group {
-  display: flex;
-  gap: 10px;
-}
-.input-group input {
-  flex: 3;
-}
-.input-group button {
-  flex: 1;
-  white-space: nowrap;
-}
-
-/* Đáp án căn từ phải qua trái */
-.schedule-option label {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
 }
