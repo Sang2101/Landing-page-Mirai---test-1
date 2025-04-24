@@ -27,15 +27,15 @@
         <div class="form-field">
           <label>Ngày sinh</label>
           <div class="dob-group">
-            <input type="number" id="dob-day" placeholder="Ngày" />
-            <input type="number" id="dob-month" placeholder="Tháng" />
-            <input type="number" id="dob-year" placeholder="Năm" />
+            <input type="number" id="dob-day" placeholder="Ngày" min="1" max="31" required />
+            <input type="number" id="dob-month" placeholder="Tháng" min="1" max="12" required />
+            <input type="number" id="dob-year" placeholder="Năm" min="1900" max="2100" required />
           </div>
         </div>
 
         <div class="form-field">
           <label for="gender">Giới tính</label>
-          <select id="gender">
+          <select id="gender" required>
             <option value="">-- Chọn --</option>
             <option value="Nam">Nam</option>
             <option value="Nữ">Nữ</option>
